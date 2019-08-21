@@ -24,7 +24,7 @@ let myName = {
   name: 'Bayron',
   City: 'Houston!',
   Me: function(){
-    console.log(this.City);
+    console.log(`Hello, my name is ${this.name} and I am from ${this.City}`);
   }
 }
 

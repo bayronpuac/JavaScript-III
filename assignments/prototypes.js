@@ -22,6 +22,7 @@ function GameObject(GameObjattributes){
   this.dimensions = GameObjattributes.dimensions;
 }
 
+
 GameObject.prototype.destroy = function () {
   return `${this.name} was removed from the game`;
 };
@@ -67,10 +68,6 @@ Humanoid.prototype = Object.create(CharacterStats.prototype);
 Humanoid.prototype.greet = function(){
   return `${this.name} offers a greeting in ${this.language}.`
 }
-
-
-
-
 
 
 /*

@@ -20,27 +20,31 @@ function sayName(name) {
 
 // Principle 2 // code example for Implicit Binding
 
-let myName = {
-  name: 'Bayron',
-  City: 'Houston!',
-  Me: function(){
-    console.log(`Hello, my name is ${this.name} and I am from ${this.City}`);
+const myObj ={
+  greeting: 'Hello',
+  sayHello: function(name){
+    console.log(`${this.greeting} my name is ${name}`);
   }
-}
-
-myName.Me();
-
+};
+myObj.sayHello('Bayron');
 
 
 // Principle 3 // code example for New Binding
 
-function Name(saying){
-    this.name1 = saying;
-  }
-  
-  let newName = new Name('My name is Bayron');
-  
-  console.log(newName.name1); 
+function CordialPerson(greeter) {
+  this.greeting = 'Hello';
+  this.greeter = greeter;
+  this.speak = function(){
+    console.log(this.greeting + this.greeter);
+    console.log(this);
+  };
+}
+
+const Bayron = new CordialPerson(' Andy');
+const Andy = new CordialPerson(' Bayron'); 
+
+Bayron.speak();
+Andy.speak(); 
 
 
 
@@ -48,12 +52,18 @@ function Name(saying){
 
 //Code using call
 
-function LastName(){
-    console.log(this.lastName);
-  }
-  
-  let myLastName ={
-    lastName: 'Puac',
-  }
-  
-  LastName.call(myLastName); 
+function CordialPerson(greeter) {
+  this.greeting = 'Hello';
+  this.greeter = greeter;
+  this.speak = function(){
+    console.log(this.greeting + this.greeter);
+    console.log(this);
+  };
+}
+
+const Larry = new CordialPerson(' Andy');
+const John = new CordialPerson(' Bayron'); 
+
+John.speak.call(Larry);
+Larry.speak.apply(John);
+
